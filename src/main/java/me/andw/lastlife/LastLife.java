@@ -11,12 +11,21 @@ import me.andw.lastlife.events.DeathListener;
 import me.andw.lastlife.events.JoinListener;
 import me.andw.lastlife.util.Prefix;
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.hover.content.Item;
 
 import java.io.File;
 
 import com.google.gson.GsonBuilder;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.block.data.Rail.Shape;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Criterias;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -50,6 +59,23 @@ public class LastLife extends JavaPlugin {
         sb.registerNewObjective("boogey", "boogey", "Boogeyman");
         sb.getObjective("boogey").getScore(Prefix.BOOGEY_SB_INFO.s).setScore(0);
         sb.getObjective("boogey").setDisplaySlot(DisplaySlot.SIDEBAR);
+
+
+        // add tnt paper recipe
+        ItemStack paperTNT = new ItemStack(Material.TNT);
+        paperTNT.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
+        ItemMeta meta = paperTNT.getItemMeta();
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.setDisplayName(ChatColor.RESET+"Paper "+ChatColor.RED+"TNT");
+        paperTNT.setItemMeta(meta);
+
+        NamespacedKey key = new NamespacedKey(this, "paper_tnt");
+        ShapedRecipe recipe = new ShapedRecipe(key, paperTNT);
+        recipe.shape("PSP", "SPS", "PSP");
+        recipe.setIngredient('P', Material.PAPER);
+        recipe.setIngredient('S', Material.SAND);
+
+        Bukkit.addRecipe(recipe);
     }
 
     @Override
