@@ -5,6 +5,14 @@ main: me.andw.lastlife.LastLife
 prefix: lastlife
 
 commands:
+  setBoogeyTime:
+    description: Sets the time the Boogeyman has in minutes
+    default: op
+    usage: /setBoogeyTime
+  getBoogeyTime:
+    description: Returns the time the Boogeyman has in minutes
+    default: op
+    usage: /getBoogeyTime
   start:
     description: Starts the lastlife game
     default: op
