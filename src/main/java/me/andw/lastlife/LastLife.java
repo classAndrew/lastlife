@@ -1,6 +1,8 @@
 package me.andw.lastlife;
 
 import me.andw.lastlife.commands.BoogeyCommand;
+import me.andw.lastlife.commands.SetBoogeyTime;
+import me.andw.lastlife.commands.GetBoogeyTime;
 import me.andw.lastlife.commands.GetlifeCommand;
 import me.andw.lastlife.commands.GivelifeCommand;
 import me.andw.lastlife.commands.RollCommand;
@@ -42,6 +44,9 @@ public class LastLife extends JavaPlugin {
         // check for existing save file
         GameManager.p = this;
         GameManager.gm();
+        
+        this.getCommand("setBoogeyTime").setExecutor(new SetBoogeyTime(this));
+        this.getCommand("getBoogeyTime").setExecutor(new GetBoogeyTime(this));
         this.getCommand("start").setExecutor(new StartCommand(this));
         this.getCommand("roll").setExecutor(new RollCommand(this));
         this.getCommand("givelife").setExecutor(new GivelifeCommand(this));

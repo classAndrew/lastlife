@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="LastLife:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LastLife_jar</output-path>
+    <root id="archive" name="LastLife.jar">
+      <element id="module-output" name="LastLife" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.7/gson-2.8.7.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
